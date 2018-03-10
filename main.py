@@ -29,6 +29,10 @@ def ChassisTemperature():
 	with Session(bitfile = bitfilepath, resource = targetname) as session:
 		session.reset() #Stop FPGA logic; put into default state
 		session.run() #Run FPGA logic
+		#**** add temperature indicator name below
+		temp_indicator = session.registers['Temp Ind']
+		temperature = temp_indicator.read() / 4 #Divide temperature by 4 to convert FPGA -> Celsius
+		print("The Internal Chassis Temperature is {0:.1f}".format(temperature))
 
 # def LedSequence():
 

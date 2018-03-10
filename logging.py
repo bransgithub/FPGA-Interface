@@ -18,7 +18,7 @@ with Session(bitfile = bitfilepath, resource = targetname) as session:
 	
 	for i in range(num_data_points):
 		my_indicator = session.registers['My Indicator']
-		
+		data = my_indicator.read()
 		#Log data here		
-		log_file.write("{0:.4f}\n".format(my_indicator))
-		#print(my_indicator)
+		log_file.write("{0:.4f}\n".format(data))
+		#print(my_indicator.read())
