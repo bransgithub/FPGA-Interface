@@ -54,9 +54,32 @@ def LedSequence():
 			LED_control.write(0)
 			print("LED Sequence {0} of 3 Completed".format(i + 1)) 
 		
+def FourElementAverage():
+	
+	FifoData = []
+	
+	print("Enter one element at a time.")
+	print("Data will be sent to the FPGA via FIFO, and the rounded integer average will be returned")
+	
+	for i in range(4):
+		FifoData[i] = int( input("Enter number {0}".format(i + 1)) )
+		
+	print("Computing the average of {0}, {1}, {2}, and {3}...".format(FifoData[0], FifoData[1], FifoData[2], FifoData[3]))
 
-# def FourElementAverage():
-
+	with Session(bitfile = bitfilepath, resource = targetname) as session:
+		session.reset() #Stop FPGA logic; put into default state
+		session.run() #Run FPGA logic
+		
+		Average = session.registers('4-Element Average') #Indicator for the average value
+		
+		Host_Target_FIFO = session.registers('Elements To Average') #Obtain the host to target FIFO
+		Host_Target_FIFO.start() #Start the FIFO
+		
+		for i in range(4):
+			Host_Target_FIFO.write(FifoData[i], timeout_ms = 100) #Writes numeric data to the FIFO, 100 ms timeout
+		
+		print("The average is {0.2f}".format(Average)) 
+		
 # def WhiteGaussianNoise():
 
 print("\n|-------------- Python FPGA Interface Example ------------------|")
@@ -74,7 +97,7 @@ while Stop == False:
 	try:
 		user_input = int( input("Enter a number: ") ) #Accept user input from 0-4
 	except:
-		user_input = 5
+		user_input = 5 #If not a value from 0-4, set to an invalid number
 
 	if user_input == 0:
 		print("Shutting Down the Program.")
