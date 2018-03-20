@@ -1,4 +1,11 @@
+#Example for Python FPGA Interface ft. the following functions:
+#Chassis Temperature
+#LED Sequences
+#Number Averaging
+#White Gaussian Noise
+
 from nifpga import Session
+import time
 
 bitfilepath = "mybitfile.lvbitx"
 targetname = "RIO0"
@@ -30,11 +37,23 @@ def ChassisTemperature():
 		session.reset() #Stop FPGA logic; put into default state
 		session.run() #Run FPGA logic
 		#**** add temperature indicator name below
-		temp_indicator = session.registers['Temp Ind']
+		temp_indicator = session.registers['Chassis Temperature']
 		temperature = temp_indicator.read() / 4 #Divide temperature by 4 to convert FPGA -> Celsius
 		print("The Internal Chassis Temperature is {0:.1f}".format(temperature))
 
-# def LedSequence():
+def LedSequence():
+	with Session(bitfile = bitfilepath, resource = targetname) as session:
+		session.reset() #Stop FPGA logic; put into default state
+		session.run() #Run FPGA logic
+		LED_control = session.registers['User Fpga Led']
+		for i in range(3):
+			LED_control.write(1) #green
+			time.sleep(1) #1 second wait
+			LED_control.write(2) #orange
+			time.sleep(1)
+			LED_control.write(0)
+			print("LED Sequence {0} of 3 Completed".format(i + 1)) 
+		
 
 # def FourElementAverage():
 
