@@ -1,6 +1,6 @@
 from nifpga import Session
 
-bitfilepath = "mybitfile.lvbitx"
+bitfilepath = "logging.lvbitx"
 targetname = "RIO0"
 
 #indicators = [] #Initialize an empty list of indicators to reference
