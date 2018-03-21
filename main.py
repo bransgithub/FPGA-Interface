@@ -13,26 +13,9 @@ targetname = "RIO0"
 log_file = open("log.txt", "w")
 
 num_data_points = 10000 #Set the number of data points to log for
-
-# with Session(bitfile = bitfilepath, resource = targetname) as session:
-	# session.reset() #Stop FPGA logic and puts it into the default state
-	
-	# session.run() #Run FPGA logic
-	
-	#Data acquisition here
-	
-	# for i in range(num_data_points):
-		# my_indicator = session.registers['My Indicator']
-		
-		#Log data here		
-		# log_file.write("{0:.4f}\n".format(my_indicator))
-		#print(my_indicator)
-
-	# with Session(bitfile = bitfilepath, resource = targetname) as session:
-		# session.reset() #Stop FPGA logic; put into default state
-		# session.run() #Run FPGA logic
 		
 def ChassisTemperature():
+
 	with Session(bitfile = bitfilepath, resource = targetname) as session:
 		session.reset() #Stop FPGA logic; put into default state
 		session.run() #Run FPGA logic
@@ -42,6 +25,7 @@ def ChassisTemperature():
 		print("The Internal Chassis Temperature is {0:.1f}".format(temperature))
 
 def LedSequence():
+
 	with Session(bitfile = bitfilepath, resource = targetname) as session:
 		session.reset() #Stop FPGA logic; put into default state
 		session.run() #Run FPGA logic
@@ -80,8 +64,45 @@ def FourElementAverage():
 		
 		print("The average is {0.2f}".format(Average)) 
 		
-# def WhiteGaussianNoise():
+def WhiteGaussianNoise():
 
+	#DMA FIFO Variables:
+	Number_Acquire = 40
+	Fifo_Timeout = Number_Acquire*10
+	
+	#IRQ Variables:
+	irqTimeout = 1000
+	irq = 0 #IRQ 0 is the default IRQ if unwired
+	
+	with Session(bitfile = bitfilepath, resource = targetname) as session:
+		session.reset() #Stop FPGA logic; put into default state
+		session.run() #Run FPGA logic
+		
+		White_Gaussian_FIFO = session.registers('White Gaussian Noise')
+		White_Gaussian_FIFO.start() #Start the FIFO
+		
+		#Wait on IRQ to find if FPGA is ready
+		irq_status = session.wait_on_irqs(irq, irqTimeout) 
+		
+		if irq_status.timed_out = True:
+			print("Timed out while waiting for interrupt.")
+		
+		#If IRQ asserted:		
+		if irq in irq_status.irqs_asserted:
+			print("IRQ 0 was asserted.")
+					
+			#Acknowledge IRQ
+			session.acknowledge_irqs(irq_status.irqs_asserted)
+			
+			#Read FIFO data into Fifo_Data array
+			Fifo_Data = White_Gaussian_FIFO.read(Number_Acquire, timeout_ms = Fifo_Timeout)
+			
+			#Normalize (Divide by 6000, since that is the RMS) and Print data	
+			print(Fifo_Data.data / 6000)
+			
+		else:
+			print("IRQ 0 was not asserted.")
+		
 print("\n|-------------- Python FPGA Interface Example ------------------|")
 print("| Enter 0 to Exit Program                                       |")
 print("| Enter 1 to Execute LED Sequence                               |")
