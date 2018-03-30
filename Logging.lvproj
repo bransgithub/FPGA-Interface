@@ -618,4 +618,215 @@
 		<Item Name="Dependencies" Type="Dependencies"/>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>
+	<Item Name="NI-cRIO9075-DollyParton" Type="RT CompactRIO">
+		<Property Name="alias.name" Type="Str">NI-cRIO9075-DollyParton</Property>
+		<Property Name="alias.value" Type="Str">10.1.128.230</Property>
+		<Property Name="CCSymbols" Type="Str">TARGET_TYPE,RT;OS,VxWorks;CPU,PowerPC;DeviceCode,7527;</Property>
+		<Property Name="crio.ControllerPID" Type="Str">7527</Property>
+		<Property Name="host.ResponsivenessCheckEnabled" Type="Bool">true</Property>
+		<Property Name="host.ResponsivenessCheckPingDelay" Type="UInt">5000</Property>
+		<Property Name="host.ResponsivenessCheckPingTimeout" Type="UInt">1000</Property>
+		<Property Name="host.TargetCPUID" Type="UInt">2</Property>
+		<Property Name="host.TargetOSID" Type="UInt">14</Property>
+		<Property Name="target.cleanupVisa" Type="Bool">false</Property>
+		<Property Name="target.FPProtocolGlobals_ControlTimeLimit" Type="Int">300</Property>
+		<Property Name="target.getDefault-&gt;WebServer.Port" Type="Int">80</Property>
+		<Property Name="target.getDefault-&gt;WebServer.Timeout" Type="Int">60</Property>
+		<Property Name="target.IOScan.Faults" Type="Str"></Property>
+		<Property Name="target.IOScan.NetVarPeriod" Type="UInt">100</Property>
+		<Property Name="target.IOScan.NetWatchdogEnabled" Type="Bool">false</Property>
+		<Property Name="target.IOScan.Period" Type="UInt">10000</Property>
+		<Property Name="target.IOScan.PowerupMode" Type="UInt">0</Property>
+		<Property Name="target.IOScan.Priority" Type="UInt">0</Property>
+		<Property Name="target.IOScan.ReportModeConflict" Type="Bool">true</Property>
+		<Property Name="target.IsRemotePanelSupported" Type="Bool">true</Property>
+		<Property Name="target.RTCPULoadMonitoringEnabled" Type="Bool">true</Property>
+		<Property Name="target.RTDebugWebServerHTTPPort" Type="Int">8001</Property>
+		<Property Name="target.RTTarget.ApplicationPath" Type="Path">/c/ni-rt/startup/startup.rtexe</Property>
+		<Property Name="target.RTTarget.EnableFileSharing" Type="Bool">true</Property>
+		<Property Name="target.RTTarget.IPAccess" Type="Str">+*</Property>
+		<Property Name="target.RTTarget.LaunchAppAtBoot" Type="Bool">false</Property>
+		<Property Name="target.RTTarget.VIPath" Type="Path">/c/ni-rt/startup</Property>
+		<Property Name="target.server.app.propertiesEnabled" Type="Bool">true</Property>
+		<Property Name="target.server.control.propertiesEnabled" Type="Bool">true</Property>
+		<Property Name="target.server.tcp.access" Type="Str">+*</Property>
+		<Property Name="target.server.tcp.enabled" Type="Bool">false</Property>
+		<Property Name="target.server.tcp.paranoid" Type="Bool">true</Property>
+		<Property Name="target.server.tcp.port" Type="Int">3363</Property>
+		<Property Name="target.server.tcp.serviceName" Type="Str">Main Application Instance/VI Server</Property>
+		<Property Name="target.server.tcp.serviceName.default" Type="Str">Main Application Instance/VI Server</Property>
+		<Property Name="target.server.vi.access" Type="Str">+*</Property>
+		<Property Name="target.server.vi.callsEnabled" Type="Bool">true</Property>
+		<Property Name="target.server.vi.propertiesEnabled" Type="Bool">true</Property>
+		<Property Name="target.WebServer.Enabled" Type="Bool">false</Property>
+		<Property Name="target.WebServer.LogEnabled" Type="Bool">false</Property>
+		<Property Name="target.WebServer.LogPath" Type="Path">/c/ni-rt/system/www/www.log</Property>
+		<Property Name="target.WebServer.Port" Type="Int">80</Property>
+		<Property Name="target.WebServer.RootPath" Type="Path">/c/ni-rt/system/www</Property>
+		<Property Name="target.WebServer.TcpAccess" Type="Str">c+*</Property>
+		<Property Name="target.WebServer.Timeout" Type="Int">60</Property>
+		<Property Name="target.WebServer.ViAccess" Type="Str">+*</Property>
+		<Property Name="target.webservices.SecurityAPIKey" Type="Str">PqVr/ifkAQh+lVrdPIykXlFvg12GhhQFR8H9cUhphgg=:pTe9HRlQuMfJxAG6QCGq7UvoUpJzAzWGKy5SbZ+roSU=</Property>
+		<Property Name="target.webservices.ValidTimestampWindow" Type="Int">15</Property>
+		<Item Name="Chassis" Type="cRIO Chassis">
+			<Property Name="crio.ProgrammingMode" Type="Str">fpga</Property>
+			<Property Name="crio.ResourceID" Type="Str">RIO0</Property>
+			<Property Name="crio.Type" Type="Str">cRIO-9075</Property>
+			<Property Name="NI.SortType" Type="Int">3</Property>
+			<Item Name="Real-Time Scan Resources" Type="Module Container">
+				<Property Name="crio.ModuleContainerType" Type="Str">crio.RSIModuleContainer</Property>
+			</Item>
+			<Item Name="FPGA Target 2" Type="FPGA Target">
+				<Property Name="AutoRun" Type="Bool">false</Property>
+				<Property Name="configString.guid" Type="Str">{094A203D-A879-4707-B80D-6D41D3492293}resource=/Sleep;0;ReadMethodType=bool;WriteMethodType=bool{10843737-CCC3-404D-9A9B-380EED0254F2}ResourceName=40 MHz Onboard Clock;TopSignalConnect=Clk40;ClockSignalName=Clk40;MinFreq=40000000.000000;MaxFreq=40000000.000000;VariableFreq=0;NomFreq=40000000.000000;PeakPeriodJitter=250.000000;MinDutyCycle=50.000000;MaxDutyCycle=50.000000;Accuracy=100.000000;RunTime=0;SpreadSpectrum=0;GenericDataHash=D41D8CD98F00B204E9800998ECF8427E;{1B4AC32E-F545-46A4-8CD9-EDB6BF3FDBB4}resource=/crio_Mod1/CAN1;0;ReadMethodType=vi.lib\LabVIEW Targets\FPGA\RIO\nicrio_985x_controls.llb\CAN_IO_IONode Data Type.ctl{690DEA72-5EF5-4D8E-A5D9-D920726EB5BB}resource=/FPGA LED;0;ReadMethodType=bool;WriteMethodType=bool{70EFAA6E-420A-4CAA-8A2C-DB3D9976425F}resource=/System Reset;0;ReadMethodType=bool;WriteMethodType=bool{9358B80D-938E-4105-8E78-39CF982B9902}resource=/crio_Mod1/CAN0;0;ReadMethodType=vi.lib\LabVIEW Targets\FPGA\RIO\nicrio_985x_controls.llb\CAN_IO_IONode Data Type.ctl{A5CA080B-D894-4440-8D12-4FA1718EE502}resource=/Scan Clock;0;ReadMethodType=bool{A6480A14-7ED0-42FF-BA4F-DEB00D0B22EE}resource=/Chassis Temperature;0;ReadMethodType=i16{E480E8A6-69FF-4943-9F71-936C88D661A7}[crioConfig.Begin]crio.Calibration=1,crio.Location=Slot 1,crio.Type=NI 9852,cRIOModule.AutoStart0=true,cRIOModule.AutoStart1=true,cRIOModule.BaudRate0=18,cRIOModule.BaudRate1=18,cRIOModule.BitTiming0=7171,cRIOModule.BitTiming1=7171,cRIOModule.IDDisplay0=0,cRIOModule.IDDisplay1=0,cRIOModule.IDFormat0=0,cRIOModule.IDFormat1=0,cRIOModule.InoutFilter0=0,cRIOModule.InoutFilter1=0,cRIOModule.InputTimeout0=10000,cRIOModule.InputTimeout1=10000,cRIOModule.ListenOnly0=false,cRIOModule.ListenOnly1=false,cRIOModule.ModuleClock0=255,cRIOModule.ModuleClock1=255,cRIOModule.ModuleType0=2,cRIOModule.ModuleType1=2,cRIOModule.OutputTimeout0=10000,cRIOModule.OutputTimeout1=10000,cRIOModule.SelectedU32IDs0=,cRIOModule.SelectedU32IDs1=,cRIOModule.SJA1000Code0=0,cRIOModule.SJA1000Code1=0,cRIOModule.SJA1000FilteMask0=-1,cRIOModule.SJA1000FilteMask1=-1,cRIOModule.SJA1000FilterMode0=1,cRIOModule.SJA1000FilterMode1=1,cRIOModule.SpecifyBitTiming0=false,cRIOModule.SpecifyBitTiming1=false,cRIOModule.Termination0=0,cRIOModule.Termination1=0[crioConfig.End]cRIO-9075/Clk40/falsefalseFPGA_EXECUTION_MODEFPGA_TARGETFPGA_TARGET_CLASSCRIO_9075FPGA_TARGET_FAMILYSPARTAN6TARGET_TYPEFPGA</Property>
+				<Property Name="configString.name" Type="Str">40 MHz Onboard ClockResourceName=40 MHz Onboard Clock;TopSignalConnect=Clk40;ClockSignalName=Clk40;MinFreq=40000000.000000;MaxFreq=40000000.000000;VariableFreq=0;NomFreq=40000000.000000;PeakPeriodJitter=250.000000;MinDutyCycle=50.000000;MaxDutyCycle=50.000000;Accuracy=100.000000;RunTime=0;SpreadSpectrum=0;GenericDataHash=D41D8CD98F00B204E9800998ECF8427E;Chassis Temperatureresource=/Chassis Temperature;0;ReadMethodType=i16cRIO-9075/Clk40/falsefalseFPGA_EXECUTION_MODEFPGA_TARGETFPGA_TARGET_CLASSCRIO_9075FPGA_TARGET_FAMILYSPARTAN6TARGET_TYPEFPGAFPGA LEDresource=/FPGA LED;0;ReadMethodType=bool;WriteMethodType=boolMod1/CAN0resource=/crio_Mod1/CAN0;0;ReadMethodType=vi.lib\LabVIEW Targets\FPGA\RIO\nicrio_985x_controls.llb\CAN_IO_IONode Data Type.ctlMod1/CAN1resource=/crio_Mod1/CAN1;0;ReadMethodType=vi.lib\LabVIEW Targets\FPGA\RIO\nicrio_985x_controls.llb\CAN_IO_IONode Data Type.ctlMod1[crioConfig.Begin]crio.Calibration=1,crio.Location=Slot 1,crio.Type=NI 9852,cRIOModule.AutoStart0=true,cRIOModule.AutoStart1=true,cRIOModule.BaudRate0=18,cRIOModule.BaudRate1=18,cRIOModule.BitTiming0=7171,cRIOModule.BitTiming1=7171,cRIOModule.IDDisplay0=0,cRIOModule.IDDisplay1=0,cRIOModule.IDFormat0=0,cRIOModule.IDFormat1=0,cRIOModule.InoutFilter0=0,cRIOModule.InoutFilter1=0,cRIOModule.InputTimeout0=10000,cRIOModule.InputTimeout1=10000,cRIOModule.ListenOnly0=false,cRIOModule.ListenOnly1=false,cRIOModule.ModuleClock0=255,cRIOModule.ModuleClock1=255,cRIOModule.ModuleType0=2,cRIOModule.ModuleType1=2,cRIOModule.OutputTimeout0=10000,cRIOModule.OutputTimeout1=10000,cRIOModule.SelectedU32IDs0=,cRIOModule.SelectedU32IDs1=,cRIOModule.SJA1000Code0=0,cRIOModule.SJA1000Code1=0,cRIOModule.SJA1000FilteMask0=-1,cRIOModule.SJA1000FilteMask1=-1,cRIOModule.SJA1000FilterMode0=1,cRIOModule.SJA1000FilterMode1=1,cRIOModule.SpecifyBitTiming0=false,cRIOModule.SpecifyBitTiming1=false,cRIOModule.Termination0=0,cRIOModule.Termination1=0[crioConfig.End]Scan Clockresource=/Scan Clock;0;ReadMethodType=boolSleepresource=/Sleep;0;ReadMethodType=bool;WriteMethodType=boolSystem Resetresource=/System Reset;0;ReadMethodType=bool;WriteMethodType=bool</Property>
+				<Property Name="NI.LV.FPGA.CompileConfigString" Type="Str">cRIO-9075/Clk40/falsefalseFPGA_EXECUTION_MODEFPGA_TARGETFPGA_TARGET_CLASSCRIO_9075FPGA_TARGET_FAMILYSPARTAN6TARGET_TYPEFPGA</Property>
+				<Property Name="NI.LV.FPGA.Version" Type="Int">6</Property>
+				<Property Name="Resource Name" Type="Str">RIO0</Property>
+				<Property Name="Target Class" Type="Str">cRIO-9075</Property>
+				<Property Name="Top-Level Timing Source" Type="Str">40 MHz Onboard Clock</Property>
+				<Property Name="Top-Level Timing Source Is Default" Type="Bool">true</Property>
+				<Item Name="Chassis I/O" Type="Folder">
+					<Item Name="Chassis Temperature" Type="Elemental IO">
+						<Property Name="eioAttrBag" Type="Xml"><AttributeSet name="">
+   <Attribute name="resource">
+   <Value>/Chassis Temperature</Value>
+   </Attribute>
+</AttributeSet>
+</Property>
+						<Property Name="FPGA.PersistentID" Type="Str">{A6480A14-7ED0-42FF-BA4F-DEB00D0B22EE}</Property>
+					</Item>
+					<Item Name="Sleep" Type="Elemental IO">
+						<Property Name="eioAttrBag" Type="Xml"><AttributeSet name="">
+   <Attribute name="resource">
+   <Value>/Sleep</Value>
+   </Attribute>
+</AttributeSet>
+</Property>
+						<Property Name="FPGA.PersistentID" Type="Str">{094A203D-A879-4707-B80D-6D41D3492293}</Property>
+					</Item>
+					<Item Name="System Reset" Type="Elemental IO">
+						<Property Name="eioAttrBag" Type="Xml"><AttributeSet name="">
+   <Attribute name="resource">
+   <Value>/System Reset</Value>
+   </Attribute>
+</AttributeSet>
+</Property>
+						<Property Name="FPGA.PersistentID" Type="Str">{70EFAA6E-420A-4CAA-8A2C-DB3D9976425F}</Property>
+					</Item>
+					<Item Name="FPGA LED" Type="Elemental IO">
+						<Property Name="eioAttrBag" Type="Xml"><AttributeSet name="">
+   <Attribute name="resource">
+   <Value>/FPGA LED</Value>
+   </Attribute>
+</AttributeSet>
+</Property>
+						<Property Name="FPGA.PersistentID" Type="Str">{690DEA72-5EF5-4D8E-A5D9-D920726EB5BB}</Property>
+					</Item>
+					<Item Name="Scan Clock" Type="Elemental IO">
+						<Property Name="eioAttrBag" Type="Xml"><AttributeSet name="">
+   <Attribute name="resource">
+   <Value>/Scan Clock</Value>
+   </Attribute>
+</AttributeSet>
+</Property>
+						<Property Name="FPGA.PersistentID" Type="Str">{A5CA080B-D894-4440-8D12-4FA1718EE502}</Property>
+					</Item>
+				</Item>
+				<Item Name="Mod1" Type="Folder">
+					<Item Name="Mod1/CAN0" Type="Elemental IO">
+						<Property Name="eioAttrBag" Type="Xml"><AttributeSet name="">
+   <Attribute name="resource">
+   <Value>/crio_Mod1/CAN0</Value>
+   </Attribute>
+</AttributeSet>
+</Property>
+						<Property Name="FPGA.PersistentID" Type="Str">{9358B80D-938E-4105-8E78-39CF982B9902}</Property>
+					</Item>
+					<Item Name="Mod1/CAN1" Type="Elemental IO">
+						<Property Name="eioAttrBag" Type="Xml"><AttributeSet name="">
+   <Attribute name="resource">
+   <Value>/crio_Mod1/CAN1</Value>
+   </Attribute>
+</AttributeSet>
+</Property>
+						<Property Name="FPGA.PersistentID" Type="Str">{1B4AC32E-F545-46A4-8CD9-EDB6BF3FDBB4}</Property>
+					</Item>
+				</Item>
+				<Item Name="40 MHz Onboard Clock" Type="FPGA Base Clock">
+					<Property Name="FPGA.PersistentID" Type="Str">{10843737-CCC3-404D-9A9B-380EED0254F2}</Property>
+					<Property Name="NI.LV.FPGA.BaseTSConfig" Type="Str">ResourceName=40 MHz Onboard Clock;TopSignalConnect=Clk40;ClockSignalName=Clk40;MinFreq=40000000.000000;MaxFreq=40000000.000000;VariableFreq=0;NomFreq=40000000.000000;PeakPeriodJitter=250.000000;MinDutyCycle=50.000000;MaxDutyCycle=50.000000;Accuracy=100.000000;RunTime=0;SpreadSpectrum=0;GenericDataHash=D41D8CD98F00B204E9800998ECF8427E;</Property>
+					<Property Name="NI.LV.FPGA.BaseTSConfig.Accuracy" Type="Dbl">100</Property>
+					<Property Name="NI.LV.FPGA.BaseTSConfig.ClockSignalName" Type="Str">Clk40</Property>
+					<Property Name="NI.LV.FPGA.BaseTSConfig.MaxDutyCycle" Type="Dbl">50</Property>
+					<Property Name="NI.LV.FPGA.BaseTSConfig.MaxFrequency" Type="Dbl">40000000</Property>
+					<Property Name="NI.LV.FPGA.BaseTSConfig.MinDutyCycle" Type="Dbl">50</Property>
+					<Property Name="NI.LV.FPGA.BaseTSConfig.MinFrequency" Type="Dbl">40000000</Property>
+					<Property Name="NI.LV.FPGA.BaseTSConfig.NominalFrequency" Type="Dbl">40000000</Property>
+					<Property Name="NI.LV.FPGA.BaseTSConfig.PeakPeriodJitter" Type="Dbl">250</Property>
+					<Property Name="NI.LV.FPGA.BaseTSConfig.ResourceName" Type="Str">40 MHz Onboard Clock</Property>
+					<Property Name="NI.LV.FPGA.BaseTSConfig.SupportAndRequireRuntimeEnableDisable" Type="Bool">false</Property>
+					<Property Name="NI.LV.FPGA.BaseTSConfig.TopSignalConnect" Type="Str">Clk40</Property>
+					<Property Name="NI.LV.FPGA.BaseTSConfig.VariableFrequency" Type="Bool">false</Property>
+					<Property Name="NI.LV.FPGA.Valid" Type="Bool">true</Property>
+					<Property Name="NI.LV.FPGA.Version" Type="Int">5</Property>
+				</Item>
+				<Item Name="IP Builder" Type="IP Builder Target">
+					<Item Name="Dependencies" Type="Dependencies"/>
+					<Item Name="Build Specifications" Type="Build"/>
+				</Item>
+				<Item Name="Mod1" Type="RIO C Series Module">
+					<Property Name="crio.Calibration" Type="Str">1</Property>
+					<Property Name="crio.Location" Type="Str">Slot 1</Property>
+					<Property Name="crio.RequiresValidation" Type="Bool">false</Property>
+					<Property Name="crio.SDcounterSlaveChannelMask" Type="Str">0</Property>
+					<Property Name="crio.SDCounterSlaveMasterSlot" Type="Str">0</Property>
+					<Property Name="crio.SDInputFilter" Type="Str">128</Property>
+					<Property Name="crio.SupportsDynamicRes" Type="Bool">false</Property>
+					<Property Name="crio.Type" Type="Str">NI 9852</Property>
+					<Property Name="cRIOModule.AutoStart0" Type="Str">true</Property>
+					<Property Name="cRIOModule.AutoStart1" Type="Str">true</Property>
+					<Property Name="cRIOModule.BaudRate0" Type="Str">18</Property>
+					<Property Name="cRIOModule.BaudRate1" Type="Str">18</Property>
+					<Property Name="cRIOModule.BitTiming0" Type="Str">7171</Property>
+					<Property Name="cRIOModule.BitTiming1" Type="Str">7171</Property>
+					<Property Name="cRIOModule.DigitalIOMode" Type="Str">0</Property>
+					<Property Name="cRIOModule.EnableSpecialtyDigital" Type="Str">false</Property>
+					<Property Name="cRIOModule.IDDisplay0" Type="Str">0</Property>
+					<Property Name="cRIOModule.IDDisplay1" Type="Str">0</Property>
+					<Property Name="cRIOModule.IDFormat0" Type="Str">0</Property>
+					<Property Name="cRIOModule.IDFormat1" Type="Str">0</Property>
+					<Property Name="cRIOModule.InoutFilter0" Type="Str">0</Property>
+					<Property Name="cRIOModule.InoutFilter1" Type="Str">0</Property>
+					<Property Name="cRIOModule.InputTimeout0" Type="Str">10000</Property>
+					<Property Name="cRIOModule.InputTimeout1" Type="Str">10000</Property>
+					<Property Name="cRIOModule.ListenOnly0" Type="Str">false</Property>
+					<Property Name="cRIOModule.ListenOnly1" Type="Str">false</Property>
+					<Property Name="cRIOModule.ModuleClock0" Type="Str">255</Property>
+					<Property Name="cRIOModule.ModuleClock1" Type="Str">255</Property>
+					<Property Name="cRIOModule.ModuleType0" Type="Str">2</Property>
+					<Property Name="cRIOModule.ModuleType1" Type="Str">2</Property>
+					<Property Name="cRIOModule.OutputTimeout0" Type="Str">10000</Property>
+					<Property Name="cRIOModule.OutputTimeout1" Type="Str">10000</Property>
+					<Property Name="cRIOModule.SelectedU32IDs0" Type="Str"></Property>
+					<Property Name="cRIOModule.SelectedU32IDs1" Type="Str"></Property>
+					<Property Name="cRIOModule.SJA1000Code0" Type="Str">0</Property>
+					<Property Name="cRIOModule.SJA1000Code1" Type="Str">0</Property>
+					<Property Name="cRIOModule.SJA1000FilteMask0" Type="Str">-1</Property>
+					<Property Name="cRIOModule.SJA1000FilteMask1" Type="Str">-1</Property>
+					<Property Name="cRIOModule.SJA1000FilterMode0" Type="Str">1</Property>
+					<Property Name="cRIOModule.SJA1000FilterMode1" Type="Str">1</Property>
+					<Property Name="cRIOModule.SpecifyBitTiming0" Type="Str">false</Property>
+					<Property Name="cRIOModule.SpecifyBitTiming1" Type="Str">false</Property>
+					<Property Name="cRIOModule.Termination0" Type="Str">0</Property>
+					<Property Name="cRIOModule.Termination1" Type="Str">0</Property>
+					<Property Name="FPGA.PersistentID" Type="Str">{E480E8A6-69FF-4943-9F71-936C88D661A7}</Property>
+				</Item>
+				<Item Name="Dependencies" Type="Dependencies"/>
+				<Item Name="Build Specifications" Type="Build"/>
+			</Item>
+		</Item>
+		<Item Name="Dependencies" Type="Dependencies"/>
+		<Item Name="Build Specifications" Type="Build"/>
+	</Item>
 </Project>

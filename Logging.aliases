@@ -1,6 +1,9 @@
 [My Computer]
 My Computer = "10.1.128.80"
 
+[NI-cRIO9075-DollyParton]
+NI-cRIO9075-DollyParton = "10.1.128.230"
+
 [supaaa-maRIOOOO-Odyssey]
 supaaa-maRIOOOO-Odyssey = "10.1.128.114"
 

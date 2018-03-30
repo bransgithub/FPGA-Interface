@@ -1,3 +1,15 @@
 3/20/18:
 
 Python 3.6.4 installed, configured. Will need to get cRIO-9068 up and running => compile FPGA => test w/ logging.py
+
+3/29/18:
+FPGA stuff: Placed python script and bitfile in /home directory
+
+download legacy FTP
+opkg to download to RIO over SSH
+
+chassis temp, LED work
+4 - element average: works, but only computes int average
+
+
+

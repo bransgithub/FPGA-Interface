@@ -24,7 +24,7 @@
 	</Item>
 	<Item Name="cRIO-benchmarking-9068" Type="RT CompactRIO">
 		<Property Name="alias.name" Type="Str">cRIO-benchmarking-9068</Property>
-		<Property Name="alias.value" Type="Str">10.1.128.114</Property>
+		<Property Name="alias.value" Type="Str">169.254.57.168</Property>
 		<Property Name="CCSymbols" Type="Str">TARGET_TYPE,RT;OS,Linux;CPU,ARM;DeviceCode,76D6;</Property>
 		<Property Name="crio.ControllerPID" Type="Str">76D6</Property>
 		<Property Name="crio.family" Type="Str">ARMLinux</Property>
@@ -113,7 +113,6 @@ AddOutputFilter chunkFilter
 				<Property Name="Mode" Type="Int">0</Property>
 				<Property Name="NI.LV.FPGA.CompileConfigString" Type="Str">cRIO-9068/Clk40/falsefalseFPGA_EXECUTION_MODEFPGA_TARGETFPGA_TARGET_CLASSCRIO_9068FPGA_TARGET_FAMILYZYNQTARGET_TYPEFPGA</Property>
 				<Property Name="NI.LV.FPGA.Version" Type="Int">6</Property>
-				<Property Name="niFpga_TopLevelVIID" Type="Path">/C/Users/bnguyen/Documents/GitHub/FPGA-Interface/C FPGA Interface Example/LabVIEW/FPGA.vi</Property>
 				<Property Name="Resource Name" Type="Str">RIO0</Property>
 				<Property Name="Target Class" Type="Str">cRIO-9068</Property>
 				<Property Name="Top-Level Timing Source" Type="Str">40 MHz Onboard Clock</Property>
@@ -208,7 +207,7 @@ AddOutputFilter chunkFilter
 					<Property Name="BuildSpec" Type="Str">{3E946E39-95D6-4A68-98C6-6288A74341D4}</Property>
 					<Property Name="configString.guid" Type="Str">{1947C43F-BD97-4ACC-8FA8-4C5DC1675397}"ControlLogic=0;NumberOfElements=1029;Type=1;ReadArbs=Arbitrate if Multiple Requestors Only;ElementsPerRead=1;WriteArbs=Arbitrate if Multiple Requestors Only;ElementsPerWrite=1;Implementation=2;Elements To Average;DataType=1000800000000001000940030003493332000100000000000000000000;DisableOnOverflowUnderflow=FALSE"{2510EC9D-0B0C-4C66-9A6B-EC968193379A}resource=/System Reset;0;ReadMethodType=bool;WriteMethodType=bool{511EA1AB-A2FF-4E46-89B6-15241A12F5A1}ResourceName=40 MHz Onboard Clock;TopSignalConnect=Clk40;ClockSignalName=Clk40;MinFreq=40000000.000000;MaxFreq=40000000.000000;VariableFreq=0;NomFreq=40000000.000000;PeakPeriodJitter=250.000000;MinDutyCycle=50.000000;MaxDutyCycle=50.000000;Accuracy=100.000000;RunTime=0;SpreadSpectrum=0;GenericDataHash=D41D8CD98F00B204E9800998ECF8427E{64A02468-AB50-4D01-8904-76F98D887F71}"ControlLogic=0;NumberOfElements=1023;Type=2;ReadArbs=Arbitrate if Multiple Requestors Only;ElementsPerRead=1;WriteArbs=Arbitrate if Multiple Requestors Only;ElementsPerWrite=1;Implementation=2;White Gaussian Noise;DataType=100080000000000100094002000349313600010000000000000000;DisableOnOverflowUnderflow=FALSE"{805134D9-FC11-470E-AF21-D7CC5A6EE1ED}resource=/USER FPGA LED;0;ReadMethodType=u8;WriteMethodType=u8{8600A34E-4E2F-4AC9-9A84-DD93AD443FD5}resource=/Chassis Temperature;0;ReadMethodType=i16{8DE58C49-A6D9-49A2-BD6A-EECD645B3AD4}resource=/Sleep;0;ReadMethodType=bool;WriteMethodType=bool{AD13B6FE-4ED6-43E8-820E-BA21CFF39215}resource=/Scan Clock;0;ReadMethodType=bool{DBA39C61-4CF0-43D8-B3B7-22C6EF85EB13}"DataType=1000800000000001000940070003553332000100000000000000000000;InitDataHash=;Name=Random Seed;WriteArb=1"cRIO-9068/Clk40/falsefalseFPGA_EXECUTION_MODEFPGA_TARGETFPGA_TARGET_CLASSCRIO_9068FPGA_TARGET_FAMILYZYNQTARGET_TYPEFPGA</Property>
 					<Property Name="configString.name" Type="Str">40 MHz Onboard ClockResourceName=40 MHz Onboard Clock;TopSignalConnect=Clk40;ClockSignalName=Clk40;MinFreq=40000000.000000;MaxFreq=40000000.000000;VariableFreq=0;NomFreq=40000000.000000;PeakPeriodJitter=250.000000;MinDutyCycle=50.000000;MaxDutyCycle=50.000000;Accuracy=100.000000;RunTime=0;SpreadSpectrum=0;GenericDataHash=D41D8CD98F00B204E9800998ECF8427EChassis Temperatureresource=/Chassis Temperature;0;ReadMethodType=i16cRIO-9068/Clk40/falsefalseFPGA_EXECUTION_MODEFPGA_TARGETFPGA_TARGET_CLASSCRIO_9068FPGA_TARGET_FAMILYZYNQTARGET_TYPEFPGAElements To Average"ControlLogic=0;NumberOfElements=1029;Type=1;ReadArbs=Arbitrate if Multiple Requestors Only;ElementsPerRead=1;WriteArbs=Arbitrate if Multiple Requestors Only;ElementsPerWrite=1;Implementation=2;Elements To Average;DataType=1000800000000001000940030003493332000100000000000000000000;DisableOnOverflowUnderflow=FALSE"Random Seed"DataType=1000800000000001000940070003553332000100000000000000000000;InitDataHash=;Name=Random Seed;WriteArb=1"Scan Clockresource=/Scan Clock;0;ReadMethodType=boolSleepresource=/Sleep;0;ReadMethodType=bool;WriteMethodType=boolSystem Resetresource=/System Reset;0;ReadMethodType=bool;WriteMethodType=boolUSER FPGA LEDresource=/USER FPGA LED;0;ReadMethodType=u8;WriteMethodType=u8White Gaussian Noise"ControlLogic=0;NumberOfElements=1023;Type=2;ReadArbs=Arbitrate if Multiple Requestors Only;ElementsPerRead=1;WriteArbs=Arbitrate if Multiple Requestors Only;ElementsPerWrite=1;Implementation=2;White Gaussian Noise;DataType=100080000000000100094002000349313600010000000000000000;DisableOnOverflowUnderflow=FALSE"</Property>
-					<Property Name="NI.LV.FPGA.InterfaceBitfile" Type="Str">C:\p4\REPT\user\REPT\FPGA Interface C API examples\All communication methods example\LabVIEW\FPGA Bitfiles\FPGACommunicatio_FPGATarget_FPGA_FGLdHDE6KeU.lvbitx</Property>
+					<Property Name="NI.LV.FPGA.InterfaceBitfile" Type="Str">C:\Users\bnguyen\Documents\GitHub\FPGA-Interface\C FPGA Interface Example\LabVIEW\FPGA Bitfiles\FPGACommunicatio_FPGATarget_FPGA_k2pYpE7HhZg.lvbitx</Property>
 				</Item>
 				<Item Name="Random Seed" Type="FPGA Register">
 					<Property Name="Arbitration For Write" Type="UInt">1</Property>
@@ -282,7 +281,8 @@ AddOutputFilter chunkFilter
 						<Property Name="Comp.Xilinx.UseRecommended" Type="Bool">true</Property>
 						<Property Name="DefaultBuildSpec" Type="Bool">true</Property>
 						<Property Name="DestinationDirectory" Type="Path">FPGA Bitfiles</Property>
-						<Property Name="NI.LV.FPGA.LastCompiledBitfilePath" Type="Path">/C/p4/REPT/user/REPT/FPGA Interface C API examples/All communication methods example/LabVIEW/FPGA Bitfiles/FPGACommunicatio_FPGATarget_FPGA_FGLdHDE6KeU.lvbitx</Property>
+						<Property Name="NI.LV.FPGA.LastCompiledBitfilePath" Type="Path">/C/Users/bnguyen/Documents/GitHub/FPGA-Interface/C FPGA Interface Example/LabVIEW/FPGA Bitfiles/FPGACommunicatio_FPGATarget_FPGA_k2pYpE7HhZg.lvbitx</Property>
+						<Property Name="NI.LV.FPGA.LastCompiledBitfilePathRelativeToProject" Type="Path">FPGA Bitfiles/FPGACommunicatio_FPGATarget_FPGA_k2pYpE7HhZg.lvbitx</Property>
 						<Property Name="ProjectPath" Type="Path">/C/Users/blueuser/Desktop/FPGA Interface C API/All communication methods example/FPGA Communication FPGA Interface C API.lvproj</Property>
 						<Property Name="RelativePath" Type="Bool">true</Property>
 						<Property Name="RunWhenLoaded" Type="Bool">false</Property>
