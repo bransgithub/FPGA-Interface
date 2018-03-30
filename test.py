@@ -1,14 +1,28 @@
 from nifpga import Session
 
-with Session(bitfile="MyBitfile.lvbitx", resource="RIO0") as session:
-    # Reset stops the logic on the FPGA and puts it in the default state.
-    # May substitute reset with download if your bitfile doesn't support it.
-    session.reset()
+bitfilepath = "MyBitfile.lvbitx"
+targetname = "10.1.128.157/RIO0"
 
-    # Add Initialization code here!
-    # Write initial values to controls while the FPGA logic is stopped.
+with Session(bitfile = bitfilepath, resource = targetname) as session:
+	# Reset stops the logic on the FPGA and puts it in the default state.
+	# May substitute reset with download if your bitfile doesn't support it.
+	session.reset()
 
-    # Start the logic on the FPGA
-    session.run()
+	# Add Initialization code here!
+	# Write initial values to controls while the FPGA logic is stopped.
 
-    # Add code that interacts with the FPGA while it is running here!
+	# Start the logic on the FPGA
+	session.run()
+	
+	Noise_length = session.registers['White Noise Data Length']
+	
+	Noise_length.write(10)
+	
+	White_Gaussian_FIFO = session.fifos['White Gaussian Noise']
+	White_Gaussian_FIFO.start() #Start the FIFO
+
+	Fifo_Data = White_Gaussian_FIFO.read(10, timeout_ms = 500)
+	
+	#Normalize (Divide by 6000, since that is the RMS) and Print data	
+	print(Fifo_Data.data / 6000)
+ 

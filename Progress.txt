@@ -11,5 +11,9 @@ opkg to download to RIO over SSH
 chassis temp, LED work
 4 - element average: works, but only computes int average
 
+3/30:18:
+everything works running on NI Linux RT?
 
+-need to incorporate better error handling for numeric inputs, etc.
+-is there a way to run this straight from the host computer?
 

@@ -1,13 +1,21 @@
-FPGA Interface C API Example for C/C++ Development Tools for NI Linux Real-Time, Eclipse Edition
+-NI FPGA Interface Python Example-
 
-Contains C Code as well as LabVIEW code. The LabVIEW code contains a basic LabVIEW Real-Time test VI, which is not needed for this example.
+This example was based entirely off the C FPGA Interface Example for NI Linux RT by ColdenR:
+https://forums.ni.com/t5/NI-Linux-Real-Time-Documents/FPGA-Interface-C-API-Example-for-NI-Linux-Real-Time-and-Eclipse/ta-p/3512138
 
-NOTE: In order to run this example, you must:
-1) Configure your Eclipse environment and install drivers as specified in this white paper: http://www.ni.com/white-paper/14625/en
-2) Install software on your NI Real-Time Linux target.
-3) Connect to your NI Real-Time Linux target as specified in the above white paper.
-4) Transfer your NiFpga_FPGA.lvbitx file to the your Linux RT system in the same directory as your built code.
+Follow the FPGA Interface Python documentation for Getting Started materials:
+http://nifpga-python.readthedocs.io/en/latest/index.html
 
-The bit file this example uses is for the cRIO-9068. To use a different target you must rebuild the FPGA bit file using LabVIEW FPGA and then use the FPGA Interface C API to regenerate the NiFpga_FPGA.h file. For instructions on using the FPGA Interface C API, refer to the Examples topic of the FPGA Interface C API Help, located under Start>>All Programs>>National Instruments>>FPGA Interface C API
+The Python script interfaces with a pre-compiled bitfile for the CompactRIO-9068. If you have a 9068, you can use the bitfile provided in this example.
+The script can be run directly on the Real-Time processor of the cRIO, as it is NI Linux RT. 
 
-For an FPGA Interface C API tutorial, see: http://www.ni.com/white-paper/8638/en
+You can use WebDav to place the Python script and the bitfile onto your cRIO-9068:
+"Using WebDAV to Transfer Files to Real-Time Target": https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z0000019PlESAU
+
+There are 4 different functions that showcase the functionality of the Python FPGA Interface:
+
+ChassisTemperature(): Use indicators to display the chassis temperature
+LedSequence(): Use controls to change User LEDs on the cRIO-9068
+FourElementAverage(): Use a Host to Target FIFO to calculate a 4-element average on the FPGA and display it
+WhiteGaussianNoise(): Acknowledge an interrupt on the FPGA, and read generated noise data from a Target to Host FIFO
+

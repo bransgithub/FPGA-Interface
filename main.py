@@ -10,8 +10,6 @@ import time
 bitfilepath = "MyBitfile.lvbitx"
 targetname = "RIO0"
 
-log_file = open("log.txt", "w")
-
 num_data_points = 10000 #Set the number of data points to log for
 		
 def ChassisTemperature():
@@ -19,7 +17,6 @@ def ChassisTemperature():
 	with Session(bitfile = bitfilepath, resource = targetname) as session:
 		session.reset() #Stop FPGA logic; put into default state
 		session.run() #Run FPGA logic
-		#**** add temperature indicator name below
 		temp_indicator = session.registers['Chassis Temperature']
 		temperature = temp_indicator.read() / 4 #Divide temperature by 4 to convert FPGA -> Celsius
 		print("The Internal Chassis Temperature is {0:.1f} C".format(temperature))
@@ -42,12 +39,20 @@ def FourElementAverage():
 	
 	FifoData = []
 	
-	print("Enter one element at a time.")
-	print("Data will be sent to the FPGA via FIFO, and the rounded integer average will be returned")
+	print("Enter one integer element at a time.\n")
+	print("Data will be sent to the FPGA via FIFO, and the rounded integer average will be returned.\n")
 	
-	for i in range(4):
-		FifoData.append( int( input("Enter number {0}: ".format(i + 1)) ) )
-		
+	i = 0
+	
+	#Loop to accept integer inputs
+	while i < 4:
+		try:
+			FifoData.append( int( input("Enter a number: ".format(i + 1)) ) )
+			i += 1
+		except: #Repeat loop iteration if invalid entry
+			print("Invalid input. Please enter an integer. ")
+			pass
+			
 	print("Computing the average of {0}, {1}, {2}, and {3}...".format(FifoData[0], FifoData[1], FifoData[2], FifoData[3]))
 
 	with Session(bitfile = bitfilepath, resource = targetname) as session:
@@ -59,8 +64,8 @@ def FourElementAverage():
 		Host_Target_FIFO = session.fifos['Elements To Average'] #Obtain the host to target FIFO
 		Host_Target_FIFO.start() #Start the FIFO
 		
-		for i in range(4):
-			Host_Target_FIFO.write(FifoData[i], timeout_ms = 100) #Writes numeric data to the FIFO, 100 ms timeout
+		for j in range(4):
+			Host_Target_FIFO.write(FifoData[j], timeout_ms = 100) #Writes numeric data to the FIFO, 100 ms timeout
 		
 		data = Average.read()
 		
@@ -80,7 +85,9 @@ def WhiteGaussianNoise():
 		session.reset() #Stop FPGA logic; put into default state
 		session.run() #Run FPGA logic
 		
-		White_Gaussian_FIFO = session.fifos['White Gaussian Noise']
+		Noise_length = session.registers['White Noise Data Length'] #Assign control to set # of White noise data points
+		
+		White_Gaussian_FIFO = session.fifos['White Gaussian Noise'] #Assign Target to Host FIFO
 		White_Gaussian_FIFO.start() #Start the FIFO
 		
 		#Wait on IRQ to find if FPGA is ready
@@ -92,7 +99,9 @@ def WhiteGaussianNoise():
 		#If IRQ asserted:		
 		if irq in irq_status.irqs_asserted:
 			print("IRQ 0 was asserted.")
-					
+			
+			Noise_length.write(Number_Acquire)
+			
 			#Acknowledge IRQ
 			session.acknowledge_irqs(irq_status.irqs_asserted)
 			
@@ -100,7 +109,9 @@ def WhiteGaussianNoise():
 			Fifo_Data = White_Gaussian_FIFO.read(Number_Acquire, timeout_ms = Fifo_Timeout)
 			
 			#Normalize (Divide by 6000, since that is the RMS) and Print data	
-			print(Fifo_Data.data / 6000)
+			for i in range(0, Number_Acquire):
+				RMS_val = int (Fifo_Data.data[i]) / 6000.0
+				print(RMS_val)
 			
 		else:
 			print("IRQ 0 was not asserted.")
@@ -135,7 +146,7 @@ while Stop == False:
 		print("Computing a 4-element Integer Average...")
 		FourElementAverage()
 	elif user_input == 4:
-		print("Reading White Gaussian Noise...")
+		print("Reading 40 Elements of White Gaussian Noise...")
 		WhiteGaussianNoise()
 	else:
 		print("Invalid Input. Please Enter an Integer Between 0 and 4.")
