@@ -17,3 +17,4 @@ everything works running on NI Linux RT?
 -need to incorporate better error handling for numeric inputs, etc.
 -is there a way to run this straight from the host computer?
 
+-Added logging to main.py to log white gaussian data; needs testing

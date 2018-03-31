@@ -73,6 +73,9 @@ def FourElementAverage():
 		
 def WhiteGaussianNoise():
 
+	#Generate log file. This will replace an existing file of the same name.
+	log_file = open("log.txt", "w")
+	
 	#DMA FIFO Variables:
 	Number_Acquire = 40
 	Fifo_Timeout = Number_Acquire*10
@@ -108,13 +111,15 @@ def WhiteGaussianNoise():
 			#Read FIFO data into Fifo_Data array
 			Fifo_Data = White_Gaussian_FIFO.read(Number_Acquire, timeout_ms = Fifo_Timeout)
 			
-			#Normalize (Divide by 6000, since that is the RMS) and Print data	
+			#Normalize, log and print data	
 			for i in range(0, Number_Acquire):
-				RMS_val = int (Fifo_Data.data[i]) / 6000.0
+				RMS_val = int (Fifo_Data.data[i]) / 6000.0 #Divide by 6000, since that is the RMS
+				log_file.write("{0:.2f}\n".format(RMS_val)) #Add data point to the log file
 				print(RMS_val)
-			
 		else:
 			print("IRQ 0 was not asserted.")
+			
+	log_file.close()
 		
 print("\n|-------------- Python FPGA Interface Example ------------------|")
 print("| Enter 0 to Exit Program                                       |")
