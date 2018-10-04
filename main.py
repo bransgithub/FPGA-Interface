@@ -73,14 +73,9 @@ def FourElementAverage():
 		
 def WhiteGaussianNoise():
 
-<<<<<<< HEAD
 	#Generate log file. This will replace an existing file of the same name.
 	log_file = open("log.txt", "w")
-	
-=======
-	log_file = open("log.txt", "w") #create log file
 
->>>>>>> a37a9accaf03876863834008b1ed16d84436363b
 	#DMA FIFO Variables:
 	Number_Acquire = 40
 	Fifo_Timeout = Number_Acquire*10
